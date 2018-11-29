@@ -1,0 +1,47 @@
+/*Program to find the size of structure of the frame format*/
+
+#include<stdio.h>
+
+#pragma pack(2)
+
+#if 0
+struct frameformat
+{
+int source_port:16;
+int destination_port:16;
+int sequence_num;
+int ack_num;
+int Header_length:4;
+int Reserved:6;
+int code_bits:6;
+int window:16;
+int checksum:16;
+int urgent:16;
+}frame;
+
+#endif
+
+#if 1
+struct frameformat
+{
+int version:4;
+int header_length:4;
+int service_type:8;
+int total_length:16;
+int identification:16;
+int flags:3;
+int fragment_offset:13;
+int ttl:8;
+int protocol:8;
+int header_checksum:16;
+int source_ip_addr;
+int destination_ip_addr;
+}frame;
+
+#endif
+
+int main()
+{
+	printf("Size of frame format is %ld\n",sizeof(frame));
+	return 0;
+}

@@ -1,0 +1,53 @@
+strcopy (char * dbuf, const char * sbuf)
+{
+  char * dbuf.0;
+  const char * sbuf.1;
+  char D.2191;
+  char D.2192;
+  char * D.2193;
+  char * d_buf;
+
+  d_buf = dbuf;
+  goto <D.2182>;
+  <D.2181>:
+  <D.2182>:
+  dbuf.0 = dbuf;
+  dbuf = dbuf.0 + 1;
+  sbuf.1 = sbuf;
+  sbuf = sbuf.1 + 1;
+  D.2191 = *sbuf.1;
+  *dbuf.0 = D.2191;
+  D.2192 = *dbuf.0;
+  if (D.2192 != 0) goto <D.2181>; else goto <D.2183>;
+  <D.2183>:
+  D.2193 = d_buf;
+  return D.2193;
+}
+
+
+main ()
+{
+  struct _IO_FILE * stdin.2;
+  char * D.2196;
+  int D.2197;
+  char dbuf[12];
+  char sbuf[12];
+
+  try
+    {
+      __builtin_puts (&"Enter the string to copy"[0]);
+      stdin.2 = stdin;
+      fgets (&sbuf, 15, stdin.2);
+      D.2196 = strcopy (&dbuf, &sbuf);
+      printf ("The copied string is %s", D.2196);
+      D.2197 = 0;
+      return D.2197;
+    }
+  finally
+    {
+      dbuf = {CLOBBER};
+      sbuf = {CLOBBER};
+    }
+}
+
+
